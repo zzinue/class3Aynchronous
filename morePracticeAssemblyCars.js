@@ -152,17 +152,16 @@ const carForSale = async(car) => {
     }
 }
 const BuildCArWholeProcess = async(carNumber) => {
-        const car = {}
-        car.chassis = await buildChassisAction();
-        console.log(`Chassis ${carNumber} finished`);
-        car.bodyWork = await buildBodyworkAction(4, 'blue');
-        console.log(`Car: ${carNumber} finished`);
-        const sentCartToAgency = await prepareToSentToAgency(car);
-        console.log(`Car ${carNumber} sent to the agency`);
-        const carExhibited = await carForSale(sentCartToAgency);
-        console.log(`Car ${carNumber} reeady to sell`, carExhibited);
-    }
-    // BuildCArWholeProcess('BMW');
+    const car = {}
+    car.chassis = await buildChassisAction();
+    console.log(`Chassis ${carNumber} finished`);
+    car.bodyWork = await buildBodyworkAction(4, 'blue');
+    console.log(`Car: ${carNumber} finished`);
+    const sentCartToAgency = await prepareToSentToAgency(car);
+    console.log(`Car ${carNumber} sent to the agency`);
+    const carExhibited = await carForSale(sentCartToAgency);
+    console.log(`Car ${carNumber} reeady to sell`, carExhibited);
+}
 const buildManyCarsSameTime = (numberOfCars) => {
     while (numberOfCars > 0) {
         BuildCArWholeProcess(numberOfCars);
